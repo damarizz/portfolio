@@ -1,0 +1,126 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import Link from "./icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+import Go from "./icons/Go.astro"
+import Python from "./icons/Python.astro"
+import ReactNative from "./icons/ReactNative.astro"
+import Cpp from "./icons/Cpp.astro"
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  GO: {
+    name: "Go",
+    class: "bg-[#00ADD8] text-white",
+    icon: Go,
+  },
+  PYTHON: {
+    name: "Python",
+    class: "bg-[#3776AB] text-white",
+    icon: Python,
+  },
+  REACT: {
+    name: "React Native",
+    class: "bg-[#61DAFB] text-black",
+    icon: ReactNative,
+  },
+  CPP: {
+    name: "C++",
+    class: "bg-[#00599C] text-white",
+    icon: Cpp,
+  },
+}
+const PROJECTS = [
+  {
+    title: "elenaDB - a disk oriented database management system",
+    description:
+      "written in Go, elenaDB aims to be a light, fast DBMS that provides an accesible and unique query syntax in spanish, caracterized by peruvian slang.",
+    github: "https://github.com/proyectitos-fisi/elenadb",
+    image: "/projects/elenadb.png",
+    tags: [TAGS.GO],
+  },
+  {
+    title: "asistencIA - AI powered mobile app for attendance control",
+    description:
+      "A mobile app that uses facial recognition to take attendance in a classroom or work environment, built with React Native and using Python libraries .",
+    github: "https://github.com/los-tamagotchi/face-recognition-attendance-system",
+    image: "/projects/asistencia.png",
+    tags: [TAGS.PYTHON, TAGS.REACT, TAGS.CPP],
+  },
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+      <div class="w-full md:w-1/2">
+        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+          <img alt="" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2 md:max-w-lg">
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+          {title}
+        </h3>
+        <div class="flex flex-wrap mt-2">
+          <ul class="flex flex-row mb-2 gap-x-2">
+            {tags.map((tag) => (
+              <li>
+                <span
+                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                >
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+          <footer class="flex items-end justify-start mt-4 gap-x-4">
+            {github && (
+              <LinkButton href={github}>
+                <GitHub class="size-6" />
+                code
+              </LinkButton>
+            )}
+            {link && (
+              <LinkButton href={link}>
+                <Link class="size-4" />
+                preview
+              </LinkButton>
+            )}
+          </footer>
+        </div>
+      </div>
+    </article>
+    ))
+  }
+</div>
+
+<div class="mt-16 text-center">
+  <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+    find out more on my GitHub!
+  </h2>
+  <br>
+  <LinkButton href="https://github.com/damarizz">
+    <GitHub class="size-6" />
+    GitHub
+  </LinkButton>
+  <p class="mt-4 italic text-gray-600 dark:text-gray-400">
+    and don't forget to follow me ;)
+  </p>
+</div>

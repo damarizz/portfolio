@@ -1,0 +1,45 @@
+---
+const personalImageAlt = "Damaris Del Carpio"
+import Badge from "@/components/Badge.astro"
+import LinkedInIcon from "@/components/icons/LinkedIn.astro"
+import MailIcon from "@/components/icons/Mail.astro"
+import SocialPill from "@/components/SocialPill.astro"
+---
+
+<div class="max-w-xl mx-auto text-center">
+  <div class="flex flex-col items-center gap-4 mb-4">
+    <img
+      class="w-28 h-"
+      src="/debian.png"
+      alt={personalImageAlt}
+    />
+    <a
+      href="https://linkedin.com/in/damarisdelcarpio"
+      target="_blank"
+      rel="noopener"
+      class="flex items-center transition md:justify-center md:hover:scale-105"
+    >
+      <!-- <Badge>open to work</Badge> -->
+    </a>
+  </div>
+  <h1
+    class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+  >
+    hey, damarizz here
+  </h1>
+  <p
+    class="mt-6 text-xl text-pink-800 dark:[&>strong]:text-pink-300 [&>strong]:text-pink-500 [&>strong]:font-semibold dark:text-gray-300"
+  >
+    i create stuff sometimes
+  </p>
+  <nav class="flex flex-wrap justify-center gap-4 mt-8">
+    <SocialPill href="mailto:damaris.delcarpiom@gmail.com">
+      <MailIcon class="size-4" />
+      contact me :)
+    </SocialPill>
+    <SocialPill href="https://linkedin.com/in/damarisdelcarpio">
+      <LinkedInIcon class="size-4" />
+      linkedIn
+    </SocialPill>
+  </nav>
+</div>

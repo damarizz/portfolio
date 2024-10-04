@@ -1,0 +1,23 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Jul. 2024 - Ongoing",
+    title: "Software Developer",
+    company: "Voltom Tech",
+    description:
+      "I specialize in backend development with NestJS and TypeScript as my main tech stack, while handling dockerization and database management. My other responsabilities include ensuring the configuration and maintenance of Linux servers for both development and production environments. I focus on automating deployment and monitoring processes to maintain application stability.",
+    link: "https://www.linkedin.com/company/voltom-tech/",
+  }
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
